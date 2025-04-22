@@ -1,12 +1,38 @@
 package com.self.myworklist.data;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "Worklist_Data")
 public class WorklistData {
 
+	@Id
+	@Column(name = "Worklist_ID")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private Long worklistId;
+	@Column(name = "Name")
 	private String name;
+	@Column(name = "Short_request")
 	private String shortRequest;
+	@Column(name = "Request_status")
 	private String requestStatus;
+	@Column(name = "Date_requested")
 	private String dateRequested;
+	@Column(name = "Date_resolved")
 	private String dateResolved;
+
+	public Long getId() {
+		return worklistId;
+	}
+
+	public void setId(Long id) {
+		this.worklistId = id;
+	}
 
 	/**
 	 * @return the name

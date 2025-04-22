@@ -19,4 +19,11 @@ public interface WorklistProcessor {
 	 */
 	public String createWorklist(WorklistData worklistData);
 
+	/**
+	 * This function updates the work-list object in the database.
+	 * @param worklistData
+	 * @return
+	 */
+	public String updateWorklist(WorklistData worklistData);
+
 }

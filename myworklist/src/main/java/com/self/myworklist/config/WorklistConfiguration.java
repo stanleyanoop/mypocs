@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Configuration;
 
 import com.self.myworklist.business.WorklistProcessor;
 import com.self.myworklist.business.impl.WorklistProcessorImpl;
-import com.self.myworklist.dataaccess.WorklistDao;
 import com.self.myworklist.dataaccess.impl.WorklistDaoImpl;
 
 @Configuration
@@ -17,9 +16,10 @@ public class WorklistConfiguration {
 		
 	}
 	
-	@Bean(name="worklistDao")
-	public WorklistDao worklistDao() {
+	@Bean(name="worklistDaoImpl")
+	public WorklistDaoImpl worklistDao() {
 		return new WorklistDaoImpl();
 	}
 
+	
 }

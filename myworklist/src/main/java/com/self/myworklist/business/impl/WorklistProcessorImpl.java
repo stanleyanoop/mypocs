@@ -10,7 +10,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.self.myworklist.business.WorklistProcessor;
 import com.self.myworklist.data.WorklistData;
-import com.self.myworklist.dataaccess.WorklistDao;
+import com.self.myworklist.dataaccess.impl.WorklistDaoImpl;
+import com.self.myworklist.dataaccessrepo.WorklistDaoRepo;
 
 /**
  *  This class is an implementation of the business logic interface WorklistProcessor.
@@ -18,8 +19,8 @@ import com.self.myworklist.dataaccess.WorklistDao;
 public class WorklistProcessorImpl implements WorklistProcessor {
 
 	@Autowired
-	@Qualifier("worklistDao")
-	WorklistDao worklistDao;
+	@Qualifier("worklistDaoImpl")
+	WorklistDaoImpl worklistDao;
 	
 	
 	@Override
@@ -34,6 +35,13 @@ public class WorklistProcessorImpl implements WorklistProcessor {
 	public String createWorklist(WorklistData worklistData) {
 		// TODO Auto-generated method stub
 		return worklistDao.createWorklist(worklistData);
+	}
+
+
+	@Override
+	public String updateWorklist(WorklistData worklistData) {
+		// TODO Auto-generated method stub
+		return worklistDao.updateWorklist(worklistData);
 	}
 
 }
