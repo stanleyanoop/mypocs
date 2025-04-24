@@ -1,0 +1,36 @@
+<div>
+    <h2>Login</h2>
+    <div class="login">
+        <tr>
+            <td>
+                {{userNameLabel}}
+            </td>
+            <td>
+                <input [(ngModel)]="userName">
+            </td>
+
+        </tr>
+    </div>
+    <div class="login">
+        <tr>
+            <td>
+                {{passwordLabel}}
+            </td>
+            <td>
+                <input [(ngModel)]="password">
+            </td>
+        </tr>
+    </div>
+    <div class="login">
+        <button (click)="signIn()">{{signInLabel}}</button>
+        <button (click)="reset()">{{resetLabel}}</button>
+    </div>
+    @if (isLabelVisible){
+    <div class="login">
+        <p>User Name {{userName}}
+            <br />
+            Password {{password}}
+        </p>
+    </div>
+    }
+</div>
