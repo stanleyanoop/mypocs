@@ -24,6 +24,12 @@ If you manually switch to a different parent and actually want the inheritance, 
 
 ### Pre-requisites
 
+#### Creating the project
+
+Run the below comment to create the project
+`
+spring init --build=maven --java-version=24 --dependencies=web myworklist
+`
 #### DB startup
 
 The DB startup is required for the web services  to work fine, as the data persistence is managed through the DB.

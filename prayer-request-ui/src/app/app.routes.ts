@@ -11,7 +11,7 @@ export const routes: Routes = [
     },
     {
         path:'home',
-        title: 'Prayer Request Home',
+        title: 'Prayer Request Dashboard',
         component: HomeUiComponent
     }
 ];

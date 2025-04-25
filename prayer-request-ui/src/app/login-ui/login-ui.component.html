@@ -26,11 +26,8 @@
         <button (click)="reset()">{{resetLabel}}</button>
     </div>
     @if (isLabelVisible){
-    <div class="login">
-        <p>User Name {{userName}}
-            <br />
-            Password {{password}}
-        </p>
+    <div class="error">
+        Either User Name or Password is empty.
     </div>
     }
 </div>
