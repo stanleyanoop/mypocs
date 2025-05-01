@@ -1,4 +1,35 @@
 <div>
     <h2> {{homeTitle}} </h2>
-    
+    <div>
+        <h3>Prayer Request List</h3>
+        <table mat-table [dataSource]="wlData">
+            <ng-container matColumnDef="reqId">
+                <th mat-header-cell *matHeaderCellDef> Req ID </th>
+                <td mat-cell *matCellDef="let request"> {{request.worklistId}} </td>
+            </ng-container>
+            <ng-container matColumnDef="reqFor">
+                <th mat-header-cell *matHeaderCellDef> Praying for (Who?) </th>
+                <td mat-cell *matCellDef="let request"> {{request.name}} </td>
+            </ng-container>
+            <ng-container matColumnDef="reqSubject">
+                <th mat-header-cell *matHeaderCellDef> Prayer Request </th>
+                <td mat-cell *matCellDef="let request"> {{request.shortRequest}} </td>
+            </ng-container>
+            <ng-container matColumnDef="reqDate">
+                <th mat-header-cell *matHeaderCellDef> Date Reported </th>
+                <td mat-cell *matCellDef="let request"> {{request.dateRequested}} </td>
+            </ng-container>
+            <ng-container matColumnDef="resovedDate">
+                <th mat-header-cell *matHeaderCellDef> Date Answered </th>
+                <td mat-cell *matCellDef="let request"> {{request.dateResolved}} </td>
+            </ng-container>
+            <ng-container matColumnDef="reqStatus">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+                <td mat-cell *matCellDef="let request"> {{request.requestStatus.status}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+        </table>
+        <!-- <mat-paginator></mat-paginator> -->
+    </div>
 </div>

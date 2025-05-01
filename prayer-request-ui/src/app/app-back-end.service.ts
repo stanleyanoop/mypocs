@@ -2,6 +2,7 @@ import { inject, Injectable, resource } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserData } from './model/user-model';
 import { map, Observable, toArray } from 'rxjs';
+import { WorklistData } from './model/worklist-model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,12 @@ export class AppBackEndService {
     return response;
   }
 
+  getWorklistData = (userName: string): Observable<WorklistData[]> => {
+    let apiEndPoint = this.apiDomain + "/worklist";
+    let response: Observable<WorklistData[]> = this.httpClient.get<WorklistData[]>(apiEndPoint);
+    return response;
+
+  }
 }
 
 
