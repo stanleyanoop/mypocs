@@ -34,17 +34,17 @@ public class WorklistControllerTest {
 		List<WorklistData> worklist = new ArrayList<WorklistData>();
 		
 		WorklistData data1 = new WorklistData();
-		data1.setId((long) 1);
+//		data1.setId((long) 1);
 		data1.setName("Test");
-		data1.setRequestStatus("Open");
+//		data1.setRequestStatus("Open");
 		data1.setShortRequest("Test Short Request");
 		data1.setDateRequested("04-21-2025");
 		worklist.add(data1);
 		
 		WorklistData data2 = new WorklistData();
-		data2.setId((long) 1);
+//		data2.setId((long) 1);
 		data2.setName("Test");
-		data2.setRequestStatus("Open");
+//		data2.setRequestStatus("Open");
 		data2.setShortRequest("Test Short Request");
 		data2.setDateRequested("04-21-2025");
 		worklist.add(data2);

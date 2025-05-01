@@ -1,7 +1,6 @@
 package com.self.myworklist.dataaccessrepo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.self.myworklist.data.UserData;
 
 /**
@@ -9,6 +8,6 @@ import com.self.myworklist.data.UserData;
  *  Data access requirements for the user transactions.
  */
 
-public interface UserDaoRepo extends JpaRepository<UserData, Long> {
+public interface UserDaoRepo extends JpaRepository<UserData, Long>{
 
 }

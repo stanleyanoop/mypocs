@@ -13,7 +13,7 @@ public class UserData {
 	@Id
 	@Column(name = "User_Id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long userId;
+	private int userId;
 	@Column(name = "First_Name")
 	private String firstName;
 	@Column(name = "Last_Name")
@@ -25,13 +25,13 @@ public class UserData {
 	/**
 	 * @return the userId
 	 */
-	public Long getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 	/**
 	 * @param userId the userId to set
 	 */
-	public void setUserId(Long userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 	/**

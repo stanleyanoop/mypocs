@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './home-ui.component.css'
 })
 export class HomeUiComponent {
+  homeTitle: string = "Prayer List Home Page";
 
 }

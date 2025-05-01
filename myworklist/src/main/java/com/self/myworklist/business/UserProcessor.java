@@ -1,5 +1,7 @@
 package com.self.myworklist.business;
 
+import java.util.List;
+
 import com.self.myworklist.data.UserData;
 
 public interface UserProcessor {
@@ -20,5 +22,12 @@ public interface UserProcessor {
 	 * @return
 	 */
 	public UserData getUser(Long userId);
+
+	/**
+	 * This method fetches the user information for the given userName
+	 * @param userName
+	 * @return
+	 */
+	public List<UserData> getUser(String userName);
 
 }

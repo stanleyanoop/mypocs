@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,18 +21,22 @@ public class WorklistData {
 	private String name;
 	@Column(name = "Short_request")
 	private String shortRequest;
-	@Column(name = "Request_status")
-	private String requestStatus;
+	@ManyToOne
+	@JoinColumn(name = "Request_status")
+	private StatusData requestStatus;
 	@Column(name = "Date_requested")
 	private String dateRequested;
 	@Column(name = "Date_resolved")
 	private String dateResolved;
+	@ManyToOne
+	@JoinColumn(name = "User_Id")
+	private UserData user;
 
-	public Long getId() {
+	public Long getWorklistId() {
 		return worklistId;
 	}
 
-	public void setId(Long id) {
+	public void setWorklistId(Long id) {
 		this.worklistId = id;
 	}
 
@@ -65,14 +71,14 @@ public class WorklistData {
 	/**
 	 * @return the requestStatus
 	 */
-	public String getRequestStatus() {
+	public StatusData getRequestStatus() {
 		return requestStatus;
 	}
 
 	/**
 	 * @param requestStatus the requestStatus to set
 	 */
-	public void setRequestStatus(String requestStatus) {
+	public void setRequestStatus(StatusData requestStatus) {
 		this.requestStatus = requestStatus;
 	}
 
@@ -102,6 +108,20 @@ public class WorklistData {
 	 */
 	public void setDateResolved(String dateResolved) {
 		this.dateResolved = dateResolved;
+	}
+
+	/**
+	 * @return the user
+	 */
+	public UserData getUser() {
+		return user;
+	}
+
+	/**
+	 * @param user the user to set
+	 */
+	public void setUser(UserData user) {
+		this.user = user;
 	}
 
 	@Override

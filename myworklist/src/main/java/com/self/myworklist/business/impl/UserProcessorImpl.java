@@ -1,5 +1,7 @@
 package com.self.myworklist.business.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.self.myworklist.business.UserProcessor;
@@ -21,6 +23,12 @@ public class UserProcessorImpl implements UserProcessor {
 	public UserData getUser(Long userId) {
 		// TODO Auto-generated method stub
 		return userDao.getUser(userId);
+	}
+
+	@Override
+	public List<UserData> getUser(String userName) {
+		// TODO Auto-generated method stub
+		return userDao.getUser(userName);
 	}
 
 }
