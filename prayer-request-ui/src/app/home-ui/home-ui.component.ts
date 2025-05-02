@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { MatTableModule } from '@angular/material/table';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Observable } from 'rxjs';
 import { WorklistData } from '../model/worklist-model';
 import { Router } from '@angular/router';
 import { AppHelper } from '../app.helper';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 @Component({
   selector: 'app-home-ui',
-  imports: [MatTableModule],
+  imports: [MatTableModule, MatPaginatorModule],
   templateUrl: './home-ui.component.html',
   styleUrl: './home-ui.component.css'
 })
-export class HomeUiComponent implements OnInit {
+export class HomeUiComponent implements OnInit, AfterViewInit {
   constructor(
     private route: Router,
     private helper: AppHelper
@@ -18,11 +19,26 @@ export class HomeUiComponent implements OnInit {
 
   userName: string = "";
   homeTitle: string = "Prayer List Home Page";
-  wlData: Observable<WorklistData[]> = new Observable<WorklistData[]>() ;
   columnsToDisplay = ['reqId', 'reqFor', 'reqSubject', 'reqDate', 'resovedDate', 'reqStatus'];
 
+  worklistObs: Observable<WorklistData[]> = new Observable<WorklistData[]>() ;
+  workList: WorklistData[] = [];
+  wlData = new MatTableDataSource<WorklistData>(this.workList);
+  @ViewChild(MatPaginator)
+  paginator: MatPaginator = new MatPaginator; 
+
   ngOnInit(): void {
-    this.wlData = this.helper.getWorklistData(this.userName);
+    this.worklistObs = this.helper.getWorklistData(this.userName);
+    this.worklistObs.subscribe((response) => {
+      this.workList = response;
+      this.wlData = new MatTableDataSource<WorklistData>(this.workList);
+
+      console.log(this.workList);
+    })
+    // throw new Error('Method not implemented.');
+  }
+  ngAfterViewInit(): void {
+    this.wlData.paginator = this.paginator;
     // throw new Error('Method not implemented.');
   }
 
