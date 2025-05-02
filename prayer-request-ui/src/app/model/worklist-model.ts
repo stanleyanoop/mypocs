@@ -16,6 +16,9 @@ export class WorklistData {
         userName: string,
         passWord: string
     };
+
+    [prop: string]: any;
+    
 constructor (
         worklistId: number,
         name: string,

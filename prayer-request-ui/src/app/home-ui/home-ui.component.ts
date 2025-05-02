@@ -27,7 +27,7 @@ export class HomeUiComponent implements OnInit, AfterViewInit {
 
   userName: string = "";
   homeTitle: string = "Prayer List Home Page";
-  columnsToDisplay = ['reqId', 'reqFor', 'reqSubject', 'reqDate', 'resovedDate', 'reqStatus'];
+  columnsToDisplay = ['worklistId', 'name', 'shortRequest', 'dateRequested', 'dateResolved', 'requestStatus.status'];
   size: number = 0;
 
   worklistObs: Observable<WorklistData[]> = new Observable<WorklistData[]>() ;
@@ -50,6 +50,12 @@ export class HomeUiComponent implements OnInit, AfterViewInit {
     // throw new Error('Method not implemented.');
   }
   ngAfterViewInit(): void {
+    this.wlData.sortingDataAccessor = (item, property) => {
+      switch(property) {
+        case 'requestStatus.status': return item.requestStatus.status;
+        default: return item[property];
+      }
+    };
     this.wlData.sort = this.sort;
     this.wlData.paginator = this.paginator;
 
