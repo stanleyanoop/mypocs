@@ -2,24 +2,25 @@ import { AfterViewInit, Component, inject, OnInit, ViewChild } from '@angular/co
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Observable } from 'rxjs';
 import { WorklistData } from '../model/worklist-model';
-import { Router } from '@angular/router';
+import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 import { AppHelper } from '../app.helper';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import {MatSort, Sort, MatSortModule} from '@angular/material/sort';
-import { LiveAnnouncer } from '@angular/cdk/a11y';
+import {MatSort, MatSortModule} from '@angular/material/sort';
+import { W } from '@angular/cdk/keycodes';
 
 @Component({
   selector: 'app-home-ui',
   imports: [
     MatTableModule, 
     MatPaginatorModule, 
-    MatSortModule
+    MatSortModule,
+    RouterModule
   ],
   templateUrl: './home-ui.component.html',
   styleUrl: './home-ui.component.css'
 })
 export class HomeUiComponent implements OnInit, AfterViewInit {
-  private _liveAnnouncer = inject(LiveAnnouncer);
+  private  activatedRoute = inject(ActivatedRoute);
   constructor(
     private route: Router,
     private helper: AppHelper
@@ -29,6 +30,7 @@ export class HomeUiComponent implements OnInit, AfterViewInit {
   homeTitle: string = "Prayer List Home Page";
   columnsToDisplay = ['worklistId', 'name', 'shortRequest', 'dateRequested', 'dateResolved', 'requestStatus.status'];
   size: number = 0;
+  showDiv: string = "no-show";
 
   worklistObs: Observable<WorklistData[]> = new Observable<WorklistData[]>() ;
   workList: WorklistData[] = [];
@@ -38,7 +40,12 @@ export class HomeUiComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort)
   sort: MatSort = new MatSort;
 
+  navigateToDetails(wlId: string): void {
+    console.log("Navigating to the details page for ID ::" + wlId)
+    // this.route.navigate(["home/prayerRequest/", wlId, "/"])
+  }
   ngOnInit(): void {
+    this.showDiv = "show-div"
     this.worklistObs = this.helper.getWorklistData(this.userName);
     this.worklistObs.subscribe((response) => {
       this.workList = response;
@@ -47,7 +54,6 @@ export class HomeUiComponent implements OnInit, AfterViewInit {
       console.log("Number of records : " + this.size)
       console.log(this.workList);
     })
-    // throw new Error('Method not implemented.');
   }
   ngAfterViewInit(): void {
     this.wlData.sortingDataAccessor = (item, property) => {
@@ -58,19 +64,5 @@ export class HomeUiComponent implements OnInit, AfterViewInit {
     };
     this.wlData.sort = this.sort;
     this.wlData.paginator = this.paginator;
-
-    // throw new Error('Method not implemented.');
-  }
-
-  announceSortChange(sortState: Sort) {
-    // This example uses English messages. If your application supports
-    // multiple language, you would internationalize these strings.
-    // Furthermore, you can customize the message to add additional
-    // details about the values being sorted.
-    if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction} ending`);
-    } else {
-      this._liveAnnouncer.announce('Sorting cleared');
-    }
   }
 }

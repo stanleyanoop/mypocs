@@ -2,6 +2,7 @@ package com.self.myworklist.dataaccess.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +34,20 @@ public class WorklistDaoImpl  {
 	public String updateWorklist(WorklistData worklistData) {
 		// TODO Auto-generated method stub
 		worklistDao.save(worklistData);
-		return null;
+		return "Update Success";
+	}
+
+	public WorklistData getWorklistDetails(Long wlId) {
+		// TODO Auto-generated method stub
+		WorklistData worklist = null;
+		try {
+			Optional<WorklistData> opt = worklistDao.findById(wlId);
+			worklist = opt.get();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("No data found");
+		}
+		return worklist;
 	}
 
 }

@@ -25,7 +25,14 @@ export class AppHelper {
         response = this.service.getUser(userName)
         return response;
     }
-}
+    getRequestDetails = (reqId: number): Observable<WorklistData> => {
+        console.log ("Inside the AppHelper.getRequestDetails method: name -" + reqId);
+        let response: Observable<WorklistData> = new Observable<WorklistData>;
+        response = this.service.getRequestDetails(reqId)
+        return response;
+
+    }
+  }
 
 function next(value: UserData): void {
     throw new Error("Function not implemented.");

@@ -26,4 +26,11 @@ public interface WorklistProcessor {
 	 */
 	public String updateWorklist(WorklistData worklistData);
 
+	/**
+	 * This function gets the work-list object for the given ID
+	 * @param wlId
+	 * @return
+	 */
+	public WorklistData getWorklistDetails(Long wlId);
+
 }

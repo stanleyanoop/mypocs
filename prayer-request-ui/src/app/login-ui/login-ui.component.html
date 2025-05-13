@@ -17,16 +17,16 @@
                 {{passwordLabel}}
             </td>
             <td>
-                <input [(ngModel)]="password">
+                <input type="password" [(ngModel)]="password">
             </td>
         </tr>
     </div>
-    <div class="login">
+    <div  class="login">
         <button (click)="signIn()">{{signInLabel}}</button>
         <button (click)="reset()">{{resetLabel}}</button>
     </div>
     @if (isLabelVisible){
-    <div class="error">
+    <div id="error" class="error">
         Either User Name or Password is empty or wrong. Please check and try again!
     </div>
     }

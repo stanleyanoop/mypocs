@@ -1,11 +1,16 @@
 <div>
-    <h2> {{homeTitle}} </h2>
+    <h2>{{homeTitle}}</h2>
     <div>
         <h3>Prayer Request List</h3>
-        <table mat-table [dataSource]="wlData" matSort >
+        <table mat-table [dataSource]="wlData" matSort>
             <ng-container matColumnDef="worklistId">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-                <td mat-cell *matCellDef="let request"> {{request.worklistId}} </td>
+                <td mat-cell *matCellDef="let request">
+                    <!-- Use this, if you want to show both the parent and child component show in the same page
+                    <a (click) = "navigateToDetails({{request.worklistId}})" [routerLink]="['prayerRequest/', request.worklistId, /]"
+                        routerLinkActive="router-link-active" >{{request.worklistId}}</a> -->
+                        <a href="prayerRequest/{{request.worklistId}}/" (click) = "navigateToDetails(request.worklistId)">{{request.worklistId}}</a>
+                </td>
             </ng-container>
             <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Praying for (Who?) </th>

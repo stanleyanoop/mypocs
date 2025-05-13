@@ -29,6 +29,13 @@ h3 {
     text-align: center;
     margin-top: 10px;
 }
+.no-show {
+    display: none;
+}
+
+.show-div {
+    display: block;
+}
 
 .mat-row:nth-child(odd) {
     background-color: antiquewhite;

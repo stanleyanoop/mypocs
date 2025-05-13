@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -41,4 +42,12 @@ public class WorklistController {
 		System.out.print("Updating the data >>>" + worklistData.toString());
 		return processor.updateWorklist(worklistData);
 	}
+	
+	@GetMapping("/worklist/{wlId}")
+	public WorklistData getWorklistDetails(@PathVariable Long wlId) {
+		WorklistData worklist = processor.getWorklistDetails(wlId);
+		
+	    return worklist;
+	}
+
 }

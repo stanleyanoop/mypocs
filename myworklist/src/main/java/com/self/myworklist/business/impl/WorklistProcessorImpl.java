@@ -44,4 +44,11 @@ public class WorklistProcessorImpl implements WorklistProcessor {
 		return worklistDao.updateWorklist(worklistData);
 	}
 
+
+	@Override
+	public WorklistData getWorklistDetails(Long wlId) {
+		// TODO Auto-generated method stub
+		return worklistDao.getWorklistDetails(wlId);
+	}
+
 }

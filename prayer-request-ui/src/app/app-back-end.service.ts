@@ -8,6 +8,7 @@ import { WorklistData } from './model/worklist-model';
   providedIn: 'root'
 })
 export class AppBackEndService {
+ 
   constructor() {}
   
   httpClient = inject(HttpClient)
@@ -24,6 +25,11 @@ export class AppBackEndService {
     let response: Observable<WorklistData[]> = this.httpClient.get<WorklistData[]>(apiEndPoint);
     return response;
 
+  }
+  getRequestDetails(reqId: number): Observable<WorklistData> {
+    let apiEndPoint = this.apiDomain + "/worklist/" + reqId;
+    let response: Observable<WorklistData> = this.httpClient.get<WorklistData>(apiEndPoint);
+    return response;
   }
 }
 
