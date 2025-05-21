@@ -19,4 +19,11 @@ public class TestConstants {
 	public static final String DASHBOARD_TITLE = "Prayer Request Dashboard";
 	public static final String DASHBOARD_PAGE_HEADING = "Prayer List Home Page";
 	public static final String DASHBOARD_TAB_HEADING = "Prayer Request List";
+	
+	public static final String TAB_HEAD_ID = "ID";
+	public static final String TAB_HEAD_WHO = "Praying for (Who?)";
+	public static final String TAB_HEAD_REQUEST = "Prayer Request";
+	public static final String TAB_HEAD_DATE_REPORTED = "Date Reported";
+	public static final String TAB_HEAD_DATE_ANSWERED = "Date Answered";
+	public static final String TAB_HEAD_STATUS = "Status";
 }

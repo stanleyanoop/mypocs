@@ -21,7 +21,6 @@ Feature: Prayer Request Dashboard feature
   Use this feature file for all scenarios in the Dashboard page
 
 
-  @dev
   Scenario Outline: Checking for the layout of the dashboard page
     Given the user is on the Prayer request dashboard
     When the user inspects the layout of the dashboard for "<Title>", "<Page Heading>" and "<Table Heading>"
@@ -37,9 +36,28 @@ Feature: Prayer Request Dashboard feature
    	| Title | Page Heading | Table Heading |
    	| Prayer Request Dashboard |  Prayer List Home Page  |  Prayer Request List |
 
-#	Scenario: Check for the number of records in the prayer request table
-#	
-#	Scenario: Check for the sort behavior in the prayer request table
+	Scenario Outline: Check for the number of records in the prayer request table
+		Given the user is on the Prayer request dashboard
+		When the user checks the Prayer Request List table
+		Then the user should see the below data
+		| ID | Praying for (Who?) | Prayer Request | Date Reported | Date Answered | Status |
+		| 102 | Anoop | Pray for peace of mind	| 04/14/2025	|  | Praying |
+		| 103 | Anoop | Pray for a good job for sustenance		| 04/14/2025	|  | Praying |
+	
+  @dev
+	Scenario: Check for the sort behavior in the prayer request table
+		Given the user is on the Prayer request dashboard
+		When the user checks the Prayer Request List table
+		And the user clicks on "<Header>" column
+		Then the data table is sorted based on the "<Header>" column
+		Examples:
+		| Header |
+		| ID |
+    | Praying for (Who?) |
+    | Prayer Request |
+    | Date Reported |
+    | Date Answered |
+    | Status |
 #	
 #	Scenario: Check for the hyperlinking of the ID values in the data table
 #	

@@ -13,11 +13,13 @@ import io.cucumber.java.en.When;
 import pages.DashboardPage;
 import pages.LoginPage;
 import utils.TestConstants;
+import utils.WorklistValidationHelper;
 
 public class LoginStepDefinition {
-	WebDriver driver;// = new ChromeDriver();
-    LoginPage loginPage;// = new LoginPage(driver);
-    DashboardPage dashboardPage;
+	protected WebDriver driver;// = new ChromeDriver();
+	private LoginPage loginPage;// = new LoginPage(driver);
+	private DashboardPage dashboardPage;
+	private WorklistValidationHelper helper = new WorklistValidationHelper();
     @Before
 	public void setup() {
 		driver = new ChromeDriver();
@@ -57,7 +59,7 @@ public class LoginStepDefinition {
 	public void the_user_clicks_the_login_button() {
 	    // Write code here that turns the phrase above into concrete actions
         loginPage.clickLoginButton();
-        sleep(2000L);
+        helper.sleep(2000L);
 	}
 
 	@Then("the user should be redirected to the dashboard")
@@ -84,13 +86,6 @@ public class LoginStepDefinition {
         assertTrue(errorMessage.equals(TestConstants.ERROR_MESSAGE)); // Replace with the actual error message
 	}
 	
-	private void sleep (Long millis) {
-        try {
-			Thread.sleep(millis);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	
 
 }
