@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
        features = {"src/test/resources/features/"},
        glue = "stepdefs",
-       tags = "@dev",
+//       tags = "@dev",
        plugin = {"pretty", "html:target/reports/cucumber-reports.html", "json:target/reports/cucumber.json"}
 )
 public class WorklistTestRunner {
