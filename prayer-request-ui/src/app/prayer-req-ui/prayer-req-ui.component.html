@@ -1,0 +1,82 @@
+<div>
+    <h2> Update the Prayer Request : {{reqId}} </h2>
+    <div>
+        <form>
+            <div class="form-container">
+
+                <div class="input-column"> <!-- inputs column -->
+                    <div class="input-group">
+                        <label>Request Id</label>
+                        <mat-form-field>
+                            <input disabled class="input-field" matInput placeholder="Auto Generated" [value]="reqId" />
+                        </mat-form-field>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Name</label>
+                        <mat-form-field>
+                            <input matInput placeholder="John Doe" [value]="name" />
+                        </mat-form-field>
+                    </div>
+                    <div class="input-group">
+                        <label>Prayer Request</label>
+                        <mat-form-field>
+                            <input matInput type="text" placeholder="Provide Request" [value]="requestTitle"
+                                [alt]="requestTitle" />
+                        </mat-form-field>
+                    </div>
+                    <div class="input-group">
+                        <label>Request Status</label>
+                        <mat-form-field>
+                            <input matInput type="text" placeholder="Select Status" />
+                        </mat-form-field>
+                    </div>
+                    <div class="input-group">
+                        <label>Requested Date</label>
+
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="picker" [value]="requestedDate | date: 'yyyy-MM-dd'"
+                                placeholder="Select date" />
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="input-group">
+                        <label>Resolved Date </label>
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="picker" [value]="resolvedDate | date: 'yyyy-MM-dd'"
+                                placeholder="Select date" />
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+
+                    </div>
+                </div>
+                <div class="input-column"> <!-- inputs column -->
+
+                    <div class="input-group">
+                        <label>Other Details</label>
+                        <mat-form-field>
+                            <textarea class="other-details" matInput placeholder="Provide any additional Details"
+                                [value]="otherDetails"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <!-- <div class="example-label">FAB</div> -->
+                    <div class="button-row">
+                        <div class="button-flex-container">
+                            <div class="button-container">
+                                <button mat-fab extended (click)="deleteRequest()">
+                                    <mat-icon>delete</mat-icon> Delete
+                                </button>
+                                <button mat-fab extended>
+                                    <mat-icon>save</mat-icon>  Save
+                                </button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+.mat-mdc-form-field-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px; /* adjust this value as needed */
+  }
+  
+  .label-column,
+  .input-column {
+    width: calc(60% - 10px); /*adjust this value as needed */
+    padding-left: calc(10% - 10px);/* Modify this for adjusting the form field alignment*/
+    align-items: center;
+    display: block;
+  }
+  /* .input-field {
+    width: calc(100% - 10px);
+  } */
+
+  h2 {
+    empty-cells: show;
+    font-size: 2rem;
+    color: var(--gray-900);
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: 0.1250rem;
+    margin: 0;
+    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+        "Segoe UI Symbol";
+    background-color: beige;
+    background-repeat: repeat-x;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 10px;
+}
+
+h3 {
+    font-size: larger;
+    font-weight: 400;
+    empty-cells: show;
+    color: var(--gray-900);
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: 0.25rem;
+    margin: 0;
+    text-align: center;
+    margin-top: 10px;
+}
+.other-details-container {
+  width: calc(80% - 10px); /* adjust the value as needed for your design */
+  margin-left: 8px; /* add some padding between elements */
+}
+.other-details {
+  /* width: 15cm; */
+  box-sizing: content-box;
+  height: fit-content;
+  size-adjust: 100%;
+}
+.button-row {
+  display: table-cell;
+  max-width: 600px;
+}
+
+.button-row .mat-mdc-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.button-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 140px;
+  margin-left: 10px;
+}
