@@ -17,7 +17,7 @@
   
   .label-column,
   .input-column {
-    width: calc(50% - 10px); /*adjust this value as needed */
+    width: calc(60% - 10px); /*adjust this value as needed */
     padding-left: calc(10% - 10px);/* Modify this for adjusting the form field alignment*/
     align-items: center;
     display: block;
@@ -65,4 +65,25 @@ h3 {
   box-sizing: content-box;
   height: fit-content;
   size-adjust: 100%;
+}
+.button-row {
+  display: table-cell;
+  max-width: 600px;
+}
+
+.button-row .mat-mdc-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.button-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 140px;
+  margin-left: 10px;
 }

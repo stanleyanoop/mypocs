@@ -3,7 +3,9 @@ import { DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInput, MatInputModule } from '@angular/material/input';
-import { MatDatepicker, MatDatepickerModule, MatDatepickerToggle } from '@angular/material/datepicker';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDatepickerModule, MatDatepickerToggle } from '@angular/material/datepicker';
 import { ActivatedRoute } from '@angular/router';
 import { AppHelper } from '../app.helper';
 import { provideNativeDateAdapter } from '@angular/material/core';
@@ -18,7 +20,9 @@ import { provideNativeDateAdapter } from '@angular/material/core';
     DatePipe,
     MatDatepickerModule,
     MatInput,
-    MatDatepickerToggle
+    MatDatepickerToggle,
+    MatButtonModule, 
+    MatIconModule
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './prayer-req-ui.component.html',
@@ -35,7 +39,7 @@ export class PrayerReqUiComponent implements OnInit {
   requestedDate: string = '';
   resolvedDate: string = '';
   otherDetails: string = '';
-
+  isNewReq: boolean = true;
   ngOnInit(): void {
     // this.route.params
     this.route.params.subscribe(param => {
@@ -44,6 +48,7 @@ export class PrayerReqUiComponent implements OnInit {
     })
     console.log("reqId got from the home page ===> " + this.reqId);
     if (this.reqId){
+      this.isNewReq = false;
       let response = this.helper.getRequestDetails(this.reqId)
       response.subscribe(data => {
         console.log(data.dateRequested);
@@ -56,6 +61,11 @@ export class PrayerReqUiComponent implements OnInit {
     }else {
 
     }
+  }
+
+  deleteRequest(){
+    console.log("Delete request with id ===> " + this.reqId);
+    
   }
 
 }

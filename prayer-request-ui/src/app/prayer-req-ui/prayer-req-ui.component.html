@@ -61,6 +61,20 @@
                                 [value]="otherDetails"></textarea>
                         </mat-form-field>
                     </div>
+                    <!-- <div class="example-label">FAB</div> -->
+                    <div class="button-row">
+                        <div class="button-flex-container">
+                            <div class="button-container">
+                                <button mat-fab extended (click)="deleteRequest()">
+                                    <mat-icon>delete</mat-icon> Delete
+                                </button>
+                                <button mat-fab extended>
+                                    <mat-icon>save</mat-icon>  Save
+                                </button>
+                            </div>
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>
