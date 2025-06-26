@@ -15,16 +15,19 @@ public class JobListingPage {
 
 	private static final String SEARCH_BOX = 
 			"xpath=/html/body/div[3]/div/div[2]/form/div/div[1]/div/input"; // Replace with the actual selector
-	private static final String FILTER_LINK = "xpath=/html/body/div[4]/div/div[1]/div[1]/div[2]/div[1]/button/span";
+//	private static final String FILTER_LINK = "xpath=/html/body/div[4]/div/div[2]/div[1]/div[2]/div[1]";
+	private static final String FILTER_LINK = "xpath=/html/body/div[4]/div/div[2]/div[1]/div[2]/div[1]/button/span";//Older xpath
 	private static final String TODAY_RADIO = 
-			"xpath=/html/body/div[4]/div/div[1]/div[2]/div[2]/div/section/div/div[2]/div/form/div/div/label[2]";
+			"xpath=/html/body/div[4]/div/div[2]/div[2]/div[2]/div/section/div/div[2]/div/form/div/div/label[1]";
+//	private static final String TODAY_RADIO = 
+//			"xpath=/html/body/div[4]/div/div[1]/div[2]/div[2]/div/section/div/div[2]/div/form/div/div/label[3]";
 	private static final String CONTRACT_CHECKBOX = 
-			"xpath=/html/body/div[4]/div/div[1]/div[2]/div[2]/div/section/div/div[4]/div/form/label[3]";
+			"xpath=/html/body/div[4]/div/div[2]/div[2]/div[2]/div/section/div/div[4]/div/form/label[3]";
 	private static final String THIRD_PARTY_CHECKBOX = 
-			"xpath=/html/body/div[4]/div/div[1]/div[2]/div[2]/div/section/div/div[4]/div/form/label[4]";
+			"xpath=/html/body/div[4]/div/div[2]/div[2]/div[2]/div/section/div/div[4]/div/form/label[4]";
 	private static final String RECRUITER_CHECKBOX = 
-			"xpath=/html/body/div[4]/div/div[1]/div[2]/div[2]/div/section/div/div[6]/div/form/label[2]";
-	private static final String JOB_LISTING_CONTAINER = "xpath=/html/body/div[4]/div/div[2]/div";
+			"xpath=/html/body/div[4]/div/div[2]/div[2]/div[2]/div/section/div/div[6]/div/form/label[2]";
+	private static final String JOB_LISTING_CONTAINER = "xpath=/html/body/div[4]/div/div[3]/div";
 	private static final String EASY_APPLY_BUTTON = 
 			"xpath=/html/body/div[3]/div/main/div[2]/div/div/div/div[3]/div[2]/div/div/div/div[2]/div[2]/apply-button-wc//apply-button/div/button";
     private static final String FILE_OPENER =
@@ -45,6 +48,11 @@ public class JobListingPage {
 		searchBox.fill(jobQuery); // Example search term, adjust as necessary
 		page.keyboard().press("Enter");
 		page.locator(FILTER_LINK).click();
+//		Locator filter = page.locator(FILTER_LINK);
+//		filter.filter(new Locator.FilterOptions().setHasText("All filters"))
+//			.filter(new Locator.FilterOptions().setHas(page.getByRole(AriaRole.BUTTON)));
+//		filter.filter(new Locator.FilterOptions().setHas(
+//				page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("All filters")))).click();
 		page.locator(TODAY_RADIO).click();
 		page.locator(CONTRACT_CHECKBOX).click();
 		page.locator(THIRD_PARTY_CHECKBOX).click();
@@ -116,7 +124,7 @@ public class JobListingPage {
 			e.printStackTrace();
     		
 			newPage.close();
-			System.exit(0);
+//			System.exit(0);
 		}
 	}
 
