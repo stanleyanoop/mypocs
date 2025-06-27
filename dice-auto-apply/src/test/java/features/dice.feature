@@ -34,6 +34,6 @@ Feature: Dice Auto Apply
     Then apply for all the jobs listed in the list
 	Examples:
 	|job|
-	|QA Automation|
+#	|QA Automation|
 #	|Java Lead|
-    
+	|Project Manager|

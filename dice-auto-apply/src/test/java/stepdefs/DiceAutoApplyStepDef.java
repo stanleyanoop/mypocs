@@ -18,8 +18,8 @@ public class DiceAutoApplyStepDef {
      private LoginPage loginPage;
      private JobListingPage jobListingPage;
   
-     private static final String DICE_EMAIL = "";
-     private static final String DICE_PASS = "";
+     private static final String DICE_EMAIL = "<Replace with Your Dice User id email>";
+     private static final String DICE_PASS = "<Replace with your Dice Password>";
      
 	@Given("the user is logged in to Dice")
 	public void the_user_is_logged_in_to_dice() {
