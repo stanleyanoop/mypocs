@@ -34,6 +34,8 @@ Feature: Dice Auto Apply
     Then apply for all the jobs listed in the list
 	Examples:
 	|job|
+#	|SDET|
 #	|QA Automation|
 #	|Java Lead|
 	|Project Manager|
+	|Scrum Master|
